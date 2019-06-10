@@ -11,8 +11,5 @@
 (define (good-enough? guess x)
   (< (abs (- (cube guess) x)) 0.0001))
 
-(define (cube x)
-  (* x x x))
-
 (define (cube-root x)
   (cube-root-iter 1.0 x))
