@@ -1,0 +1,42 @@
+In the first implementation
+
+#+BEGIN_SRC scheme
+  (define (+ a b)
+    (if (= a 0)
+        b
+        (inc (+ (dec a) b))))
+#+End_SRC
+Would expand in the following manner:
+#+BEGIN_SRC scheme
+  (+ 4 5)
+  (inc (+ 3 4))
+  (inc (inc (+ 2 4)))
+  (inc (inc (inc (+ 1 4))))
+  (inc (inc (inc (inc (+ 0 4)))))
+  (inc (inc (inc (inc 4))))
+  (inc (inc (inc 5)))
+  (inc (inc 6))
+  (inc 7)
+  8
+#+END_SRC
+This process is recursive, as the procedures requires to store extra information
+which is not stored in the variables.
+
+Meanwhile, this implementation:
+#+BEGIN_SRC scheme
+  (define (+ a b)
+    (if (= a 0)
+        b
+        (+ (dec a) (inc b))))
+#+END_SRC
+Would expand in the following manner:
+#+BEGIN_SRC scheme
+  (+ 4 5)
+  (+ 2 6)
+  (+ 1 7)
+  (+ 0 8)
+  8
+#+END_SRC
+This procedure is defines iteratively, as the complexity of the procedure decreases,
+the amount of information stored by the interpreter does not change; it remains
+constant.
