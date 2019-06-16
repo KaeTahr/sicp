@@ -1,5 +1,4 @@
 In the first implementation
-
 #+BEGIN_SRC scheme
   (define (+ a b)
     (if (= a 0)
@@ -21,6 +20,7 @@ Would expand in the following manner:
 #+END_SRC
 This process is recursive, as the procedures requires to store extra information
 which is not stored in the variables.
+
 
 Meanwhile, this implementation:
 #+BEGIN_SRC scheme
